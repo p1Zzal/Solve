@@ -1,0 +1,30 @@
+8kyu 
+Remove First and Last Character
+
+Task 
+It's pretty straightforward.
+Your goal is to create a function that removes the first and last characters of a string.
+You're given one parameter, the original string.
+You don't have to worry with strings with less than two characters.
+
+문자열에서 첫 번째 문자와 마지막 문자를 제거하는 문제이다.
+매개변수 str 이 주어진다.
+두 자 미만의 문자열은 주어지지 않는다.
+
+///
+
+처음 문제풀이
+
+function removeChar(str){
+  return str.replace(str[0],"").replace(str[str.length-1],"")  
+};
+
+이렇게 일차원적으로 생각해서 문제를 풀었으나, 생각해보니 앞에 동일한 문자가 있으면 먼저 지워진다는것을 생각지도 않았다.
+
+다음 시도한 문제풀이는 slice 를 써서 풀었다.
+
+function removeChar(str){
+  return str.slice(1,-1)
+};
+
+정상적으로 테스트 문제와 랜덤문제 모두 해결된걸 확인할 수 있다.
