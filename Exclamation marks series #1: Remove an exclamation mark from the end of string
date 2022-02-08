@@ -1,0 +1,18 @@
+8kyu
+Exclamation marks series #1: Remove an exclamation mark from the end of string
+
+Remove an exclamation mark from the end of a string.
+For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+
+문자열 끝에 느낌표를 지워야한다.
+
+///
+
+풀이방법
+
+해당 방법은 정규표현식이 쉽고 편할것 같다 정규표현식을 사용하였다.
+slice, substr 같은건 혹여 문자열 마지막에 느낌표가 없을경우가 있을 수 있어 사용하지 않았다.
+
+function remove (string) {
+  return string.replace(/\!$/,"")
+}
