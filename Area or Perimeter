@@ -1,0 +1,35 @@
+8kyu
+Area or Perimeter
+
+You are given the length and width of a 4-sided polygon. The polygon can either be a rectangle or a square.
+If it is a square, return its area. If it is a rectangle, return its perimeter.
+
+area_or_perimeter(6, 10) --> 32
+area_or_perimeter(3, 3) --> 9
+Note: for the purposes of this kata you will assume that it is a square if its length and width are equal, otherwise it is a rectangle.
+
+사각형이 주어진다 직사각형이면 둘레를 정사각형이면 넓이를 반환한다.
+
+///
+
+정사각형의 넓이를 구하는 법 과 직사각형의 둘레를 구하는 방법을 알면 쉽게풀수 있다.
+정사각형의 한 변의 길이를 a 라고 했을때 a*a 를 해주면된다.
+직사각형은 한 변의 길이 x2 또 다른 변의 길이 x2 를 해서 더해주면 된다.
+
+아래와 같은 방식으로 풀었다.
+
+const areaOrPerimeter = function(l , w) {
+    if(l===w){
+      return l*w
+    }
+    return (l*2) + (w*2)
+};
+
+삼항연산자를 사용하여도 되는데
+
+
+const areaOrPerimeter = function(l , w) {
+  return l===w ? l*w : (l * 2) + (w * 2)
+};
+
+이런식으로 풀어도된다.
