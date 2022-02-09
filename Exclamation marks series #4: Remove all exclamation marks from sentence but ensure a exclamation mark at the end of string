@@ -1,0 +1,15 @@
+8kyu
+Exclamation marks series #4: Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string
+
+Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string.
+For a beginner kata, you can assume that the input data is always a non empty string, no need to verify it.
+
+맨 뒤 느낌표 빼고 모두 지우면 된다.
+
+///
+
+replace 와 정규표현식을 사용해서 모두 지워버리고 맨 뒤에 느낌표를 붙혀주었다.
+
+function remove (string) {
+  return string.replace(/\!/g,"") + "!"
+}
