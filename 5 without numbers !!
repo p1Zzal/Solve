@@ -1,0 +1,42 @@
+8kyu
+5 without numbers !!
+
+
+Write a function that always returns 5
+
+Sounds easy right? Just bear in mind that you can't use any of the following characters: 0123456789*+-/
+
+Good luck :)
+
+5를 반환하는 함수를 만들어라.
+단 0123456789*+-/ 는 쓸 수 없다.
+
+///
+
+처음에는 뭐지 저 단일기호들과 숫자만 쓸 수 없는건가 하고 아래처럼 작성하였다
+
+function unusualFive() {
+  return 250/50
+}
+
+하지만 그냥 숫자 자체와 기호를 쓸 수 없는거였다.
+
+그래서 다음 생각한게 아스키코드 였다.
+
+function unusualFive() {
+  return String.fromCharCode("ENQ")
+}
+
+난 바보였다..
+그냥 배열을 만들어서 배열의 인덱스를 가져오면 될것을..
+
+function unusualFive() {
+  let arr = ["a","b","c","d","e","f"]
+  return arr.indexOf("f")
+}
+
+위 처럼하니 풀어졌다.
+근데 다른사람의 문제풀이 방식을 보니 난 더 바보였던걸 느꼈다....
+그냥 길이가 5인 문자열의 length 로 푸는게 더 간단했다.
+
+더욱 
