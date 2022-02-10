@@ -1,0 +1,21 @@
+8kyu
+L1: Set Alarm
+
+Write a function named setAlarm which receives two parameters.
+The first parameter, employed, is true whenever you are employed and the second parameter, vacation is true whenever you are on vacation.
+
+The function should return true if you are employed and not on vacation (because these are the circumstances under which you need to set an alarm).
+It should return false otherwise. Examples:
+
+첫 번째 매개변수는 employed 이고 두 번째 매개변수는 vacation 이다.
+첫 번째 매개변수만 true 일 때 true를 반환하라.
+
+///
+
+삼항연산자를 사용해서 true, false 를 반환해줬다.
+
+function setAlarm(employed, vacation){
+  return employed === true && vacation === false ? true : false
+}
+
+솔직히 문제만 읽었을때는 문제가 긴가민가해서 이 뜻으로 물어본게 맞는건가 했는데 다행히도 맞았다.
