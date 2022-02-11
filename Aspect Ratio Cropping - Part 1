@@ -1,0 +1,37 @@
+8kyu
+Aspect Ratio Cropping - Part 1
+
+The aspect ratio of an image describes the proportional relationship between its width and its height.
+Most video shown on the internet uses a 16:9 aspect ratio, which means that for every pixel in the Y,
+there are roughly 1.77 pixels in the X (where 1.77 ~= 16/9). 
+As an example, 1080p video with an aspect ratio of 16:9 would have an X resolution of 1920, 
+however 1080p video with an aspect ratio of 4:3 would have an X resolution of 1440.
+
+Write a function that accepts arbitrary X and Y resolutions and converts them into resolutions with a 16:9 aspect ratio that maintain equal height.
+Round your answers up to the nearest integer.
+
+This kata is part of a series with Aspect Ratio Cropping - Part 2 .
+
+Example
+374 × 280 pixel image with a 4:3 aspect ratio.
+
+매개변수 x, y 가 주어진다.
+y는 냅두고 x:y 를 16:9 로 만들어라
+
+정답 예:
+x=1
+y=1
+
+이라고 했을 때
+
+assertSimilar(aspectRatio(x, y), [16x, 9y]);
+
+///
+
+간단하게 y를 9로 나눠주고 16을 곱햇다.
+그렇게 되면 첫번째 문제에서 x 는 853.3333333333334 이렇게 되는데
+소수점을 없애고 높임을 위해서 ceil 을 썼다.
+
+function aspectRatio(x,y){
+  return [Math.ceil((y/9)*16), y]
+}
