@@ -1,0 +1,40 @@
+8kyu
+Enumerable Magic #20 - Cascading Subsets
+
+Create a method each_cons that accepts a list and a number n, and returns cascading subsets of the list of size n, like so:
+
+each_cons([1,2,3,4], 2)
+  #=> [[1,2], [2,3], [3,4]]
+
+each_cons([1,2,3,4], 3)
+  #=> [[1,2,3],[2,3,4]]
+  
+As you can see, the lists are cascading; ie, they overlap, but never out of order.
+
+리스트 와 숫자 가 주어진다.
+크기가 n인 배열을 만들어라
+
+
+///
+
+아래와 같이 풀었다. slice 로 배열을 잘라 result 배열에 push 해준다음
+result 에서 길이가 n과 같은것만 반환해줬다.
+
+내 생각이지만 이런 문제가 어렵게 생각하면 끝도없이 어렵고, 그냥 간단하게 생각하면 간단하게 풀리는것 같다.
+
+맨 처음에 문제를 봤을 때 for문 까지는 잘 써내려갔다. 근데 for 문에서 문득 든 생각이
+"엥 3,5,7,8 이라는 배열에 n 이 3 이라고 친다면 답은 [3,5,7], [5,7,8] 이니까 배열 맨 끝의 숫자가 나오면 for문을 멈춰야하는건가? 그럼 또 if문 넣고
+break 넣어야겠네.. 정말 그렇게 귀찮게 해야할까...?"
+
+라는 생각이 들어서 그냥 result 를 console 에 찍어봤는데 너무 바보같은 생각이였다.. length 가 n 인 값만 반환해주면 되는거였다..
+
+그래서 filter를 써서 length === 3 인것만 반환해줬다
+더 공부해야겠다
+
+function eachCons(array, n) {
+  let result = []
+  for(let i=0; i<array.length; i++){
+    result.push(array.slice(i,i+n))
+  }
+  return result.filter((a)=> a.length === n)
+}
