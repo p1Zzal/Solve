@@ -1,0 +1,17 @@
+8kyu
+Grasshopper - Terminal game combat function
+
+Create a combat function that takes the player's current health and the amount of damage recieved,
+and returns the player's new health. Health can't be less than 0.
+
+health 와 damage 매개변수가 주어진다
+플레이어 의 새 health 를 반환하는 함수를 만들면 된다.
+health 가 0 보다 작아질순 없다.
+
+///
+
+삼항연산자를 사용하여 0 보다 작을때 0 을 아니면 health - damage 를 반환해줬다.
+
+function combat(health, damage) {
+  return health - damage < 0 ? 0 : health - damage
+}
