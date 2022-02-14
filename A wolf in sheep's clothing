@@ -1,0 +1,35 @@
+8kyu
+A wolf in sheep's clothing
+
+Wolves have been reintroduced to Great Britain. You are a sheep farmer, and are now plagued by wolves which pretend to be sheep. Fortunately, you are good at spotting them.
+
+Warn the sheep in front of the wolf that it is about to be eaten. Remember that you are standing at the front of the queue which is at the end of the array:
+
+[sheep, sheep, sheep, sheep, sheep, wolf, sheep, sheep]      (YOU ARE HERE AT THE FRONT OF THE QUEUE)
+   7      6      5      4      3            2      1
+If the wolf is the closest animal to you, return "Pls go away and stop eating my sheep".
+Otherwise, return "Oi! Sheep number N! You are about to be eaten by a wolf!" where N is the sheep's position in the queue.
+
+Note: there will always be exactly one wolf in the array.
+
+Examples
+Input: ["sheep", "sheep", "sheep", "wolf", "sheep"]
+Output: "Oi! Sheep number 1! You are about to be eaten by a wolf!"
+
+Input: ["sheep", "sheep", "wolf"]
+Output: "Pls go away and stop eating my sheep"
+
+배열의 순서는 오른쪽에서 부터 센다.
+wolf 가 첫 번째 순서에 있으면 "Pls go away and stop eating my sheep" 를 반환한다.
+아니면 "Oi! Sheep number ${울프앞에 있는 양의 순서}! You are about to be eaten by a wolf!" 를 반환한다.
+
+///
+
+순서가 반대이기 때문에 reverse 를 썼고,
+wolf 의 index 가 0 이면 "Pls go away and stop eating my sheep"
+아니면 `Oi! Sheep number ${queue.indexOf("wolf")}! You are about to be eaten by a wolf!` 를 반환하도록 했다.
+
+function warnTheSheep(queue) {
+  queue.reverse()
+  return queue.indexOf("wolf") === 0 ? "Pls go away and stop eating my sheep" : `Oi! Sheep number ${queue.indexOf("wolf")}! You are about to be eaten by a wolf!`
+}
