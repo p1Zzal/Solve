@@ -1,0 +1,23 @@
+8kyu
+Grasshopper - Personalized Message
+
+
+Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+
+Use conditionals to return the proper message:
+
+case	return
+name equals owner	'Hello boss'
+otherwise	'Hello guest'
+
+name 과 owner 라는 매개변수가 주어지는데 
+name 과 owner 가 같다면 hello boss 를
+다르다면 hello guest 를 반환해주면 된다.
+
+///
+
+간단하게 삼항연산자를 사용하여 풀었다.
+
+function greet (name, owner) {
+  return name === owner ? "Hello boss" : "Hello guest"
+}
