@@ -1,0 +1,24 @@
+8kyu
+Vowel remover
+
+Create a function called shortcut to remove the lowercase vowels (a, e, i, o, u ) in a given string.
+
+Examples
+"hello"     -->  "hll"
+"codewars"  -->  "cdwrs"
+"goodbye"   -->  "gdby"
+"HELLO"     -->  "HELLO"
+don't worry about uppercase vowels
+y is not considered a vowel for this kata
+
+
+string이 주어진다
+a,e,i,o,u 를 지우면 된다.
+
+///
+
+아래와 같이 정규표현식을 사용하여 전부 지우면 된다.
+
+function shortcut (string) {
+  return string.replace(/[aeiou]/gi,"")
+}
