@@ -1,0 +1,60 @@
+6kyu
+Title Case
+
+A string is considered to be in title case if each word in the string is either (a) capitalised (that is, only the first letter of the word is in upper case) 
+or (b) considered to be an exception and put entirely into lower case unless it is the first word, which is always capitalised.
+
+Write a function that will convert a string into title case, given an optional list of exceptions (minor words). 
+The list of minor words will be given as a string with each word separated by a space. 
+Your function should ignore the case of the minor words string -- it should behave in the same way even if the case of the minor word string is changed.
+
+###Arguments (Haskell)
+
+First argument: space-delimited list of minor words that must always be lowercase except for the first word in the string.
+Second argument: the original string to be converted.
+###Arguments (Other languages)
+
+First argument (required): the original string to be converted.
+Second argument (optional): space-delimited list of minor words that must always be lowercase except for the first word in the string. 
+The JavaScript/CoffeeScript tests will pass undefined when this argument is unused.
+###Example
+
+titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
+titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
+titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
+
+문자열이 주어지며 각 문자열의 첫 글자는 대문자 그 뒤 글자는 소문자를 반환해라.
+단, 매개변수 minorWords 에 속해 있는 첫 단어 빼고 모두 소문자로 반환해라.
+(index 0번째 글자는 minorWords 에 속해있어도 첫 글자는 대문자 그 뒤 글자는 소문자로 변환)
+
+///
+
+일단 모두 소문자로 바꾸고 split 으로 공백마다 나뉘는 배열을 만들어줬다.
+그 다음 titlearr 를 map 을 돌려 minorarr 에 없는 단어거나, index 가 0 인 글자는
+0번째 단어는 대문자로 그 뒤 단어는 소문자로 해서 반환해주고 아니라면 그대로 소문자로 넘겨줬다.
+
+function titleCase(title, minorWords) {
+  let titlearr = title.toLowerCase().split(' ')
+  let minorarr = minorWords.toLowerCase().split(' ')
+  
+  
+  return titlearr.map((a,i)=>{
+    if(minorarr.indexOf(a) === -1 || i === 0){
+      return a.charAt(0).toUpperCase() + a.slice(1).toLowerCase()
+    }
+    return a
+  }).join(' ')
+  
+}
+
+근데 위와 같이 했을때 오류가 발생했다.
+보니까 minorWords 매개변수 자체가 없는 경우가 있어서 오류가 발생했다.
+
+그래서
+
+let minorarr = minorWords.toLowerCase().split(' ')
+를 
+true 값 일때는 split해서 배열을, 없다면 빈 배열을 반환하도록 바꿨다.
+let minorarr = minorWords ? minorWords.toLowerCase().split(' ') : []
+
+그랬더니 정상적으로 문제풀이가 되었다.
