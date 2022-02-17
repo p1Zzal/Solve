@@ -1,0 +1,15 @@
+8kyu
+Surface Area and Volume of a Box
+
+
+Write a function that returns the total surface area and volume of a box as an array: [area, volume]
+
+부피와 표면적을 구하면된다.
+
+///
+
+부피 구하는 공식과 표면적 구하는 공식을 사용하여 반환을 해주면 풀린다.
+
+function getSize(width, height, depth){
+  return[((2*depth*width) + (2*depth*height) + (2*height*width)), width*height*depth]
+}
