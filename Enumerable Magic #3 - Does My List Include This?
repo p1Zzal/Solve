@@ -1,0 +1,15 @@
+8kyu
+Enumerable Magic #3 - Does My List Include This?
+
+Create a method that accepts a list and an item, and returns true if the item belongs to the list, otherwise false.
+
+매개변수 arr, item 이 주어진다
+item 이 arr 안에 있으면 true 를 아니라면 false 를 반환한다.
+
+///
+
+indexOf 를 사용해서 풀었다.
+
+function include(arr, item){
+  return arr.indexOf(item) > -1
+}
