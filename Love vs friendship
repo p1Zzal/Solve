@@ -1,0 +1,23 @@
+7kyu
+Love vs friendship
+
+If　a = 1, b = 2, c = 3 ... z = 26
+
+Then l + o + v + e = 54
+
+and f + r + i + e + n + d + s + h + i + p = 108
+
+So friendship is twice stronger than love :-)
+
+The input will always be in lowercase and never be empty.
+
+a는 1 b는 2 .... z는 26
+abc 순서대로 숫자를 매겨 합을 계산하면 된다.
+무조건 소문자로 나온다.
+///
+
+split 으로 알파벳을 나눠서 아스키코드에서 -96을 해주고 모두 reduce로 모두 더해줬다.
+
+function wordsToMarks(string){
+  return string.split('').map(a => a.charCodeAt()-96).reduce((a,b) => a+b,0)
+}
