@@ -1,0 +1,18 @@
+7kyu
+JavaScript Array Filter
+
+JavaScript Arrays support a filter function (starting in JavaScript 1.6). Use the filter functionality to complete the function given.
+
+The solution would work like the following:
+
+getEvenNumbers([2,4,5,6]) // should == [2,4,6]
+
+filter 함수를 사용해서 예제와 같이 반환해라.
+
+///
+
+아래와 같이 짝수를 filter를 써서 짝수를 리턴하도록 했다.
+
+function getEvenNumbers(numbersArray){
+  return numbersArray.filter(a => a%2 === 0)
+}
