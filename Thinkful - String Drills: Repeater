@@ -1,0 +1,18 @@
+7kyu
+Thinkful - String Drills: Repeater
+
+Write a function named repeater() that takes two arguments (a string and a number), and returns a new string where the input string is repeated that many times.
+
+Example: (Input1, Input2 --> Output)
+"a", 5 --> "aaaaa"
+
+매개변수 string 과 n 이 주어지는데
+n번 반복되는 string 을 반환하면 된다.
+
+///
+
+repeat 함수를 써서 반환해줬다.
+
+function repeater(string, n){
+  return string.repeat(n)
+}
