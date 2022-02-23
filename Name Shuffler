@@ -1,0 +1,16 @@
+8kyu
+Name Shuffler
+
+Write a function that returns a string in which firstname is swapped with last name.
+
+nameShuffler('john McClane'); => "McClane john"
+
+이름 앞 뒤를 바꿔라.
+
+///
+
+split 으로 공백기준 나누고 reverse 로 뒤집은 다음 합쳐줬다.
+
+function nameShuffler(str){
+  return str.split(' ').reverse().join(' ')
+}
