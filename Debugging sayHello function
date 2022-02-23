@@ -1,0 +1,24 @@
+8kyu
+Debugging sayHello function
+
+
+The starship Enterprise has run into some problem when creating a program to greet everyone as they come aboard.
+It is your job to fix the code and get the program working again!
+
+Example output:
+
+Hello, Mr. Spock
+
+
+아래와 같이 주어지는데 매개변수 name 을 뒤에 붙여서 반환해주면 된다.
+
+function sayHello(name) {
+  return 'Hello'
+}
+
+///
+
+
+function sayHello(name) {
+  return `Hello, ${name}`
+}
