@@ -1,0 +1,24 @@
+8kyu
+Do you speak "English"?
+
+Given a string of arbitrary length with any ascii characters. Write a function to determine whether the string contains the whole word "English".
+
+The order of characters is important -- a string "abcEnglishdef" is correct but "abcnEglishsef" is not correct.
+
+Upper or lower case letter does not matter -- "eNglisH" is also correct.
+
+Return value as boolean values, true for the string to contains "English", false for it does not.
+
+english 라는 단어 그대로 문자안에 들어있으면 true
+아니라면 false 를
+
+예를 들어 abcEnglishdef 는 english 대소문자 상관없이 순서가 제대로 들어가있기에 true 이지만,
+abcnEglishsef 는 순서가 잘못되어 false 다
+
+///
+
+test 를 사용해서 english 가 들어있는지 확인해서 true, false 를 반환해줬다.
+
+function spEng(sentence){
+  return /english/gi.test(sentence)
+}
