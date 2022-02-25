@@ -1,0 +1,16 @@
+7kyu
+No oddities here
+
+Write a small function that returns the values of an array that are not odd.
+
+All values in the array will be integers. Return the good values in the order they are given.
+
+매개변수 values 에서 짝수인 수 만 반환하면된다.
+
+///
+
+filter 를 써서 짝수를 판별해서 반환해줬다.
+
+function noOdds( values ){
+  return values.filter((a) => a%2===0)
+}
