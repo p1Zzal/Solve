@@ -1,0 +1,35 @@
+7kyu
+Alternate capitalization
+
+Given a string, capitalize the letters that occupy even indexes and odd indexes separately, and return as shown below.
+Index 0 will be considered even.
+
+For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. See test cases for more examples.
+
+The input will be a lowercase string with no spaces.
+
+Good luck!
+
+반환하는 배열안에 0번째 인덱스는 짝수가 대문자로, 1번째 인덱스는 홀수를 대문자로 바꿔서 반환하면 된다.
+
+///
+
+a의 변수에는 s를 map 을 돌려서 i 가 짝수이면 대문자를,
+b의 변수에는 i가 홀수이면 대문자를 넣어 [a, b] 로 반환해줬다.
+
+function capitalize(s){
+  let a = s.split('').map((a,i) => i%2 === 0 ? a.toUpperCase() : a).join('')
+  let b = s.split('').map((a,i) => i%2 !=0 ? a.toUpperCase() : a).join('')
+  return [a, b];
+};
+
+
+
+아래는 다른사람이 한 풀이인데 진짜 똑똑한것 같아서 가져와봤다.
+
+function capitalize(s){
+  return [0,1].map(r=>[...s].map((c,i)=>i%2===r?c.toUpperCase():c).join(''));
+};
+
+0,1 을 배열에 넣은다음 map을 돌리고 s 전개구문으로 배열안에 담고 map 을 돌려서 i 가 r(0 또는 1) 과 같다면 대문자로 넣었다.
+진짜 똑똑하게 잘푼 것 같다.
