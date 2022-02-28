@@ -1,0 +1,27 @@
+8kyu
+Regex count lowercase letters
+
+Your task is simply to count the total number of lowercase letters in a string.
+
+Examples
+lowercaseCount("abc"); ===> 3
+
+lowercaseCount("abcABC123"); ===> 3
+
+lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"); ===> 3
+
+lowercaseCount(""); ===> 0;
+
+lowercaseCount("ABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"); ===> 0
+
+lowercaseCount("abcdefghijklmnopqrstuvwxyz"); ===> 26
+
+문자열에서 소문자의 개수를 반환하면된다.
+
+///
+
+빈 문자열일 경우를 대비해서 match 대신 replace 를 썼다.
+
+function lowercaseCount(str){
+  return str.replace(/[^a-z]/g, '').length
+}
