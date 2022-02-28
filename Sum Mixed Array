@@ -1,0 +1,17 @@
+8kyu
+Sum Mixed Array
+
+Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.
+
+Return your answer as a number.
+
+문자와 숫자가 섞인 배열이 주어진다.
+해당 배열들을 모두 숫자로 취급해서 더한 값을 반환하면 된다.
+
+///
+
+parseInt 로 정수로 바꿔줘서 reduce 해줬다.
+
+function sumMix(x){
+  return x.reduce((a,b) => parseInt(a) + parseInt(b),0)
+}
