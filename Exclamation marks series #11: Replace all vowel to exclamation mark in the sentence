@@ -1,0 +1,21 @@
+8kyu
+Exclamation marks series #11: Replace all vowel to exclamation mark in the sentence
+
+Description:
+Replace all vowel to exclamation mark in the sentence. aeiouAEIOU is vowel.
+
+Examples
+replace("Hi!") === "H!!"
+replace("!Hi! Hi!") === "!H!! H!!"
+replace("aeiou") === "!!!!!"
+replace("ABCDE") === "!BCD!"
+
+모음을 전부 느낌표로 바꿔서 반환하면 된다.
+
+///
+
+replace 와 정규표현식으로 느낌표로 바꿔서 반환해줬다.
+
+function replace(s){
+  return s.replace(/[aeiou]/gi, '!')
+}
