@@ -1,0 +1,36 @@
+6kyu
+Highest Rank Number in an Array
+
+Complete the method which returns the number which is most frequent in the given input array. 
+If there is a tie for most frequent number, return the largest number among them.
+
+Note: no empty arrays will be given.
+
+Examples
+[12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  12
+[12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
+[12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3
+
+주어진 배열속에서 가장많이 중복된 값을 찾으면된다.
+만약 중복된 수 가 똑같을 경우 제일 높은값을 반환하면된다.
+
+///
+
+reduce를 사용해서 객체로 만들어 값을 key와 중복 카운트 수 를 value 로 만들었다.
+그 후 각각 key 와 value 를 배열로 만들어 index를 확인했다.
+
+function highestRank(arr){
+  let newarr = arr.reduce((a,c) => {
+    a[c] = (a[c] || 0) + 1;
+    return a
+  },{})
+  
+  let objKey = Object.keys(newarr)
+  let objValue = Object.values(newarr)
+
+  if(objValue.indexOf(Math.max(...objValue)) === objValue.lastIndexOf(Math.max(...objValue))){
+    return parseInt(objKey[objValue.indexOf(Math.max(...objValue))])
+  }else{
+    return parseInt(objKey[objValue.lastIndexOf(Math.max(...objValue))])
+  }
+}
