@@ -1,0 +1,97 @@
+6kyu
+Multi-tap Keypad Text Entry on an Old Mobile Phone
+
+Prior to having fancy iPhones, teenagers would wear out their thumbs sending SMS messages on candybar-shaped feature phones with 3x4 numeric keypads.
+
+------- ------- -------
+|     | | ABC | | DEF |
+|  1  | |  2  | |  3  |
+------- ------- -------
+------- ------- -------
+| GHI | | JKL | | MNO |
+|  4  | |  5  | |  6  |
+------- ------- -------
+------- ------- -------
+|PQRS | | TUV | | WXYZ|
+|  7  | |  8  | |  9  |
+------- ------- -------
+------- ------- -------
+|     | |space| |     |
+|  *  | |  0  | |  #  |
+------- ------- -------
+
+Prior to the development of T9 (predictive text entry) systems, 
+the method to type words was called "multi-tap" and involved pressing a button repeatedly to cycle through the possible values.
+
+For example, to type a letter "R" you would press the 7 key three times (as the screen display for the current character cycles through P->Q->R->S->7). 
+A character is "locked in" once the user presses a different key or pauses for a short period of time (thus, no extra button presses are required beyond what is needed for each letter individually). The zero key handles spaces, with one press of the key producing a space and two presses producing a zero.
+
+In order to send the message "WHERE DO U WANT 2 MEET L8R" a teen would have to actually do 47 button presses. No wonder they abbreviated.
+
+For this assignment, write a module that can calculate the amount of button presses required for any phrase. 
+Punctuation can be ignored for this exercise. Likewise, you can assume the phone doesn't distinguish between upper/lowercase characters (but you should allow your module to accept input in either for convenience).
+
+Hint: While it wouldn't take too long to hard code the amount of keypresses for all 26 letters by hand, 
+try to avoid doing so! (Imagine you work at a phone manufacturer who might be testing out different keyboard layouts, and you want to be able to test new ones rapidly.)
+
+스마트폰 이전 핸드폰 자판을 생각해서 매개변수 phrase 에 나오는 문자를 총 몇번 손가락으로 터치해야하는지 카운트를 세서 반환하면된다.
+
+///
+
+먼저 phrase를 소문자로 만들었고,
+object 를 생성해서 각 핸드폰 자판을 넣었다. 그 후 밸류만 빼서 배열을 만들었고 for반복문을 돌려서 index를 찾아 count에 더해줬다.
+
+
+function presses(phrase) {
+
+  let bb = phrase.toLowerCase()
+  
+  let count = 0
+  
+  let obj = {
+    a : 'abc2', 
+    b : 'def3', 
+    c : 'ghi4', 
+    d : 'jkl5', 
+    e : 'mno6', 
+    f : 'pqrs7', 
+    g : 'tuv8',
+    h : 'wxyz9',
+    i : ' 0',
+    xx : '1'
+  }
+  
+  let aa = Object.values(obj)
+  
+  for(let i=0; i<phrase.length; i++){
+    for(let j=0; j<aa.length; j++){
+      if(aa[j].indexOf(bb[i]) > -1){
+        count+=aa[j].indexOf(bb[i])+1
+      }
+    }
+  }
+  
+  return count
+}
+
+그런데 분명히 위 방법보다 훨씬 좋은 방법이 있을것 같았다. 그래서 다른 사람의 풀이를 한번 찾아봤다.
+
+이 분은 배열을 만들에 해당 자판들을 넣고, 매개변수 phrase를 글자씩 나눠서 foreach 를 돌렸다.
+그리고 foreach 내 에서 filter를 써서 index 값을 total 에 더해줬다.
+아래 방법이 좀 더 읽기 편한것 같다.
+
+function presses(phrase) {
+  var chunks = ['1', 'ABC2', 'DEF3', 'GHI4', 'JKL5', 'MNO6', 'PQRS7', 'TUV8', 'WXYZ9', ' 0'],
+      phrase = phrase.toUpperCase().split(''),
+      total = 0;
+  
+  phrase.forEach(function(l) {
+    var key = chunks.filter(function(c) {
+      return c.indexOf(l) > -1;
+    })[0];
+    total += key.indexOf(l) + 1;
+  });
+  
+  return total;
+      
+}
