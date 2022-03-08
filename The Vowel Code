@@ -1,0 +1,57 @@
+6kyu
+The Vowel Code
+
+Step 1: Create a function called encode() to replace all the lowercase vowels in a given string with numbers according to the following pattern:
+
+a -> 1
+e -> 2
+i -> 3
+o -> 4
+u -> 5
+
+For example, encode("hello") would return "h2ll4". There is no need to worry about uppercase vowels in this kata.
+
+Step 2: Now create a function called decode() to turn the numbers back into vowels according to the same pattern shown above.
+
+For example, decode("h3 th2r2") would return "hi there".
+
+For the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels.
+
+encode 라는 함수에서는 소문자 모음을 위에 해당하는 숫자로 바꾸면되고,
+decode 라는 함수에서는 숫자로 바뀐 모음을 다시 소문자영어로 바꾸면 된다.
+
+///
+
+객체를 지정하고 map 을 돌려서 맞는게 있으면 해당 숫자가 나오도록 했다.
+
+function encode(string) {
+  let obj = {
+    a : 1,
+    e : 2,
+    i : 3,
+    o : 4,
+    u : 5
+  }
+  return string.split('').map(a => obj[a] ? obj[a] : a).join('')
+}
+
+function decode(string) {
+  let obj = {
+    1 : 'a',
+    2 : 'e',
+    3 : 'i',
+    4 : 'o',
+    5 : 'u'
+  }
+  return string.split('').map(a => obj[a] ? obj[a] : a).join('')
+  
+  근데 문제를 풀고 다른 사람의 풀이를 보는데 진짜 이쁜풀이를 봤다.
+  난 왜 이렇게 생각하지 못했을까.. 또 한번 공부한다
+  
+  function encode(string){
+    return string.replace(/[aeiou]/g, function (x) { return '_aeiou'.indexOf(x) });
+  }
+
+  function decode(string){
+    return string.replace(/[1-5]/g, function (x) { return '_aeiou'.charAt(x) });
+  }
